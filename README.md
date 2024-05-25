@@ -12,5 +12,4 @@ Aplicação Web para controle de frequência escolar desenvolvida em React + Nod
 
 ### Diagrama de Classes de Dominio
 
-
-
+![Diagrama de classes](docs/diagrama_classes_dominio.png)
