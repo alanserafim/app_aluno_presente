@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 0 1em;
+}
+
+/* img {
+    width: 60px;
+    border-radius: 50%;
+} */
+
+.dados {
+    font-size: 0.7em;
+    line-height: 0.7em;
+    background-color: aquamarine;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: chartreuse;
+}
+
+.principal p {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 0.8em;
+}
