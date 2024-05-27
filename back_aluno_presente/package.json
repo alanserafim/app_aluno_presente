@@ -1,5 +1,13 @@
 {
+  "name": "backend_aluno_presente",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
     "sequelize": "^6.37.3"
