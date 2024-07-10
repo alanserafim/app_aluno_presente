@@ -1,11 +1,17 @@
 import express from "express"
+import conectaNaDatabase from "./config/db.js"
+import routes from "./routes/index.js"
 
-const PORT = 3000
+const conexao = await conectaNaDatabase();
+
+conexao.on("error", (erro) => {
+    console.error("erro de conexão", erro)
+})
+conexao.once("open", ()=>{
+    console.log("Conexão com o banco feita com suscesso")
+})
 
 const app = express()
-
-app.get("/", (req, res) => {
-    res.status(200).send("API Aluno Presente")
-})
+routes(app)
 
 export default app;
