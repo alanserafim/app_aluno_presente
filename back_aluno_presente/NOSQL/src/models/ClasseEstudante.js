@@ -11,9 +11,9 @@ const classeEstudanteSchema = new mongoose.Schema({
             estudante: estudantesSchema
         }
     ]
-}, { versionKey: false })
+}, { versionKey: false });
 
 const classeEstudante = mongoose.model("classes_estudantes", classeEstudanteSchema);
 
 
-export { classeEstudante, classeEstudanteSchema }
+export { classeEstudante, classeEstudanteSchema };

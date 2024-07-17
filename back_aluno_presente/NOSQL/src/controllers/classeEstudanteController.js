@@ -1,6 +1,6 @@
-import { classeEstudante } from "../models/ClasseEstudante.js";
-import { estudante } from "../models/Estudante.js";
-import { classe } from "../models/Classe.js";
+import { classeEstudante } from "../models/index.js";
+import { estudante } from "../models/index.js";
+import { classe } from "../models/index.js";
 
 class ClasseEstudanteController {
 
@@ -20,29 +20,29 @@ class ClasseEstudanteController {
     }
 
     static async cadastrarClasseEstudante (req, res){
-        const alunos = req.body.estudantes
-        const sala = req.body.classe    
+        const alunos = req.body.estudantes;
+        const sala = req.body.classe;    
         try {
-            const classeEncontrada = await classe.findById(sala)
-            const listaDeAlunos = await ClasseEstudanteController.gerarListaDeEstudantes(alunos)
-            console.log(listaDeAlunos)
+            const classeEncontrada = await classe.findById(sala);
+            const listaDeAlunos = await ClasseEstudanteController.gerarListaDeEstudantes(alunos);
+            console.log(listaDeAlunos);
             const novaClasseEstudante = {
                 classe: classeEncontrada,
                 estudantes: listaDeAlunos
-            }
-            const classeEstudanteCriada = await classeEstudante.create(novaClasseEstudante)
+            };
+            const classeEstudanteCriada = await classeEstudante.create(novaClasseEstudante);
             res.status(201).json({ message: "criada com sucesso", classEstudante: classeEstudanteCriada });
         } catch (error){
-            res.status(500).json({message: `${error.message} - falha ao cadastrar ClasseEstudante`})
+            res.status(500).json({message: `${error.message} - falha ao cadastrar ClasseEstudante`});
         }
     }
 
     static async listarClassesEstudantes (req, res){
         try {
-            const listaClasses = await classeEstudante.find({})
+            const listaClasses = await classeEstudante.find({});
             res.status(200).json(listaClasses);
         } catch (error) {
-            res.status(500).json({message: `${error.message} - falha ao listar classes`})
+            res.status(500).json({message: `${error.message} - falha ao listar classes`});
         }
     }
 
@@ -50,19 +50,19 @@ class ClasseEstudanteController {
         try {
             const id = req.params.id;
             const ClasseEstudanteEncontrada = await classeEstudante.findById(id);
-            res.status(200).json(ClasseEstudanteEncontrada)            
+            res.status(200).json(ClasseEstudanteEncontrada);            
         } catch (error) {
-            res.status(500).json({message: `${error.message} - falha ao listar ClasseEstudante por id`})
+            res.status(500).json({message: `${error.message} - falha ao listar ClasseEstudante por id`});
         }
     }
 
     static async atualizarClasseEstudante (req, res){
         try {
             const id = req.params.id;
-            await classeEstudante.findByIdAndUpdate(id, req.body)
+            await classeEstudante.findByIdAndUpdate(id, req.body);
             res.status(200).json({ message: "ClasseEstudante atualizada com sucesso"});
         } catch (error) {
-            res.status(500).json({message: `${error.message} - falha ao atualizar ClasseEstudante`})
+            res.status(500).json({message: `${error.message} - falha ao atualizar ClasseEstudante`});
         }
     }
 
@@ -72,7 +72,7 @@ class ClasseEstudanteController {
             await classeEstudante.findByIdAndDelete(id);
             res.status(200).json({ message: "ClasseEstudante excluída com sucesso"});
         } catch (error) {
-            res.status(500).json({message: `${error.message} - falha ao excluir ClasseEstudante`})
+            res.status(500).json({message: `${error.message} - falha ao excluir ClasseEstudante`});
         }
     }
 

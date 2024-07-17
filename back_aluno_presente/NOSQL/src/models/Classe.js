@@ -6,8 +6,8 @@ const classeSchema = new mongoose.Schema({
     tipoEnsino: { type: String },
     horario: { type: String },
     sala: { type: Number },
-}, { versionKey: false })
+}, { versionKey: false });
 
 const classe = mongoose.model("classes", classeSchema);
 
-export { classe, classeSchema }
+export { classe, classeSchema };

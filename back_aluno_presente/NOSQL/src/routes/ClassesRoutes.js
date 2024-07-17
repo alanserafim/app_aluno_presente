@@ -1,5 +1,5 @@
-import express from 'express'
-import ClasseController from '../controllers/classeController.js';
+import express from "express";
+import ClasseController from "../controllers/classeController.js";
 
 const routes = express.Router();
 

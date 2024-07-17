@@ -12,8 +12,8 @@ const registroFrequenciaSchema = new mongoose.Schema({
             id_estudante: { type: String },
         }
     ]
-}, { versionKey: false })
+}, { versionKey: false });
 
 const registroFrequencia = mongoose.model("registro_frequencia", registroFrequenciaSchema);
 
-export { registroFrequencia, registroFrequenciaSchema }
+export { registroFrequencia, registroFrequenciaSchema };

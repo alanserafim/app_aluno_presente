@@ -8,8 +8,8 @@ const estudantesSchema = new mongoose.Schema({
     dataNascimento: { type: String },
     status: { type: String, required: true},
     classe: classeSchema,
-}, {versionKey: false})
+}, {versionKey: false});
 
-const estudante = mongoose.model("estudantes", estudantesSchema)
+const estudante = mongoose.model("estudantes", estudantesSchema);
 
-export { estudante, estudantesSchema }
+export { estudante, estudantesSchema };
