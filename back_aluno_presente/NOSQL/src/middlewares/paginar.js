@@ -1,4 +1,4 @@
-import { Erro400RequisicaoIncorreta } from "../Errors/Erro400";
+import { Erro400RequisicaoIncorreta } from "../Errors/Erro400.js";
 
 export default async function paginar(req, res, next){
     
@@ -13,7 +13,10 @@ export default async function paginar(req, res, next){
         const resultado = req.resultado;
   
         if(limite > 0 && pagina > 0) {
-            const resultadoPaginado = await resultado.find({}).skip((pagina - 1 ) * limite).limit(limite).sort({[campoOrdenacao]: ordem});
+            const resultadoPaginado = await resultado.find({})
+                .skip((pagina - 1 ) * limite)
+                .limit(limite)
+                .sort({[campoOrdenacao]: ordem});
             res.status(200).json(resultadoPaginado);
         } else {
             next(new Erro400RequisicaoIncorreta);

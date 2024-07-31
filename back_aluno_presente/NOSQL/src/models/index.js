@@ -1,7 +1,8 @@
 import "../validators/validadorGlobal.js";
-import { classe } from "./Classe.js";
-import { classeEstudante } from "./ClasseEstudante.js";
 import { estudante } from "./Estudante.js";
+import { curso } from "./Curso.js";
+import { matricula } from "./Matricula.js";
+import { turma } from "./Turma.js";
 import { registroFrequencia } from "./RegistroFrequencia.js";
 
-export { classe, classeEstudante, estudante,  registroFrequencia};
+export { estudante, curso, matricula, turma, registroFrequencia };

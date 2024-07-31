@@ -1,15 +1,19 @@
 import mongoose from "mongoose";
-import { classeEstudanteSchema } from "./ClasseEstudante.js";
 
 const registroFrequenciaSchema = new mongoose.Schema({
-    id_frequencia: { type: mongoose.Schema.ObjectId },
-    data: { type: Date },
-    classeEstudante: classeEstudanteSchema,
+    id: { type: mongoose.Schema.ObjectId },
+    data: { 
+        type: Date,
+        required: [true, "A data do registro da frequência é obrigatória"]
+    },
+    turma_id: {
+        type: String,
+        required: [true, "o Id da classe é obrigatório"]
+    },
     frequencia: [
         {
-            numero: { type: Number },
+            matricula_id: { type: String },
             presenca: { type: Boolean } ,
-            id_estudante: { type: String },
         }
     ]
 }, { versionKey: false });
